@@ -25,3 +25,7 @@ En la primera carga de la página se crearán los productos. Puede que se deba r
 http://localhost:3000/graphql
 
 Se podrán ver los servicios disponibles en GraphQL
+
+# Test backend
+
+`npm run test:e2e`

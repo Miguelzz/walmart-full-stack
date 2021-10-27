@@ -1,6 +1,6 @@
 import { Resolver, Query, Args, Mutation } from '@nestjs/graphql';
-import { ProductService } from 'src/services/product.service';
-import { discount } from 'src/shared/functions';
+import { ProductService } from '../../services/product.service';
+import { discount } from '../../shared/functions';
 import { Product, ProductInput } from '../../schemas/product/product.model';
 import products from '../../shared/products';
 
@@ -36,5 +36,21 @@ export class ProductResolver {
     }
 
     return [];
+  }
+
+  @Mutation(() => Product)
+  async sum(
+    @Args('num1') num1: number,
+    @Args('num2') num2: number,
+  ): Promise<Product> {
+    return {
+      id: 'test',
+      index: '0',
+      brand: 'test',
+      description: 'test',
+      discount: num1 + num2,
+      image: 'test',
+      price: 555,
+    };
   }
 }

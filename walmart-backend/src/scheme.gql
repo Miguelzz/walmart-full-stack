@@ -19,6 +19,7 @@ type Query {
 type Mutation {
   createProduct(product: ProductInput!): Product!
   createProducts: [Product!]!
+  sum(num2: Float!, num1: Float!): Product!
 }
 
 input ProductInput {
