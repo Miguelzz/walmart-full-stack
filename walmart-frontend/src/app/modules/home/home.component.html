@@ -1,0 +1,21 @@
+<div class="products container">
+  <mat-card *ngFor="let product of (products$ | async)">
+    <div *ngIf="product.discount" class="discount">{{product.discount}}%</div>
+    <div class="image">
+      <img loading="lazy" [src]="'https://'+product.image" />
+    </div>
+    <div class="brand">{{product.brand}}</div>
+    <div class="description">{{product.description}}</div>
+    <div class="price">
+      <div>
+        <span>${{ product.price | thousand}}</span>
+        <span *ngIf="product.discount">${{ before(product) | thousand}}</span>
+      </div>
+      <button mat-mini-fab>
+        <mat-icon>shopping_cart</mat-icon>
+      </button>
+    </div>
+  </mat-card>
+
+</div>
+<footer>fooas</footer>

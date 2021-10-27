@@ -1,0 +1,61 @@
+  <header>
+    <mat-toolbar color="primary">
+      <span>Walmart</span>
+      <span class="spacer"></span>
+      <div class="search">
+        <mat-icon>search</mat-icon>
+        <input (keyup)="searchProduct($event.target)" type="text" placeholder="¿Que estas buscando?">
+      </div>
+      <span class="spacer"></span>
+      <button mat-icon-button>
+        <mat-icon>shopping_cart</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
+
+
+
+    </mat-toolbar>
+    <mat-toolbar-row>
+      <div class="filters container">
+        <section>
+          <button mat-button [matMenuTriggerFor]="menuGender">Genero</button>
+          <mat-menu #menuGender="matMenu">
+            <button (click)="$event.stopPropagation();" mat-menu-item>
+              <mat-checkbox>Masculino</mat-checkbox>
+            </button>
+            <button (click)="$event.stopPropagation();" mat-menu-item>
+              <mat-checkbox>Femenino</mat-checkbox>
+            </button>
+          </mat-menu>
+        </section>
+
+        <section>
+          <button mat-button [matMenuTriggerFor]="menuS">Especializado</button>
+          <mat-menu #menuS="matMenu">
+            <button (click)="$event.stopPropagation();" mat-menu-item>
+              <mat-checkbox>Bebes</mat-checkbox>
+            </button>
+            <button (click)="$event.stopPropagation();" mat-menu-item>
+              <mat-checkbox>Adolescente</mat-checkbox>
+            </button>
+            <button (click)="$event.stopPropagation();" mat-menu-item>
+              <mat-checkbox>Adulto</mat-checkbox>
+            </button>
+            <button (click)="$event.stopPropagation();" mat-menu-item>
+              <mat-checkbox>Adulto mayor</mat-checkbox>
+            </button>
+          </mat-menu>
+        </section>
+
+
+      </div>
+    </mat-toolbar-row>
+  </header>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer>sadsada</footer>

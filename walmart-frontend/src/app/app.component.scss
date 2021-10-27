@@ -1,0 +1,51 @@
+:host {
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+
+header {
+  .search {
+    display: flex;
+    align-items: center;
+
+    input {
+      width: 500px;
+      padding: 0.5rem;
+      border-radius: 17px;
+      border: none;
+      margin-left: 0.2rem;
+      text-align: center;
+      &:focus {
+        border: none;
+        outline: none;
+      }
+
+      &:active {
+        border: none;
+      }
+    }
+  }
+
+  .mat-toolbar-row {
+    .filters {
+      display: grid;
+      grid-template-columns: auto auto 1fr;
+      gap: 2rem;
+
+      section {
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 0.5rem;
+      }
+    }
+  }
+}
+
+main {
+  background-color: #f1f1f1;
+  padding-top: 1rem;
+}

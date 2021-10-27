@@ -1,0 +1,24 @@
+# @format
+
+services:
+  frontend:
+    container_name: walmart-frontend
+    image: walmart-frontend
+    build:
+      context: ./walmart-frontend
+    ports:
+      - "80:80"
+
+  database:
+    container_name: mongo
+    image: mongo
+    ports:
+      - "27017:27017"
+
+  backend:
+    container_name: walmart-backend
+    image: walmart-backend
+    build:
+      context: ./walmart-backend
+    ports:
+      - "3000:3000"
