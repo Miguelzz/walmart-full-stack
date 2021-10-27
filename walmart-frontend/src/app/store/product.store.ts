@@ -7,6 +7,11 @@ export class SEARCH_PRODUCTS {
   constructor(public search: string) {}
 }
 
+export class CREATE_PRODUCTS {
+  static readonly type = '[product] create';
+  constructor() {}
+}
+
 @State<{
   products: Product[];
 }>({
@@ -24,6 +29,12 @@ export class ProductState {
     return state.products;
   }
 
+  @Action(CREATE_PRODUCTS)
+  createProducts() {
+    this.productService
+      .createProducts()
+      .subscribe((x) => console.log('load products'));
+  }
   @Action(SEARCH_PRODUCTS)
   search(ctx: StateContext<any>, payload: SEARCH_PRODUCTS) {
     console.log(payload);

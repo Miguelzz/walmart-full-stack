@@ -1,10 +1,11 @@
-FROM node:14.15 as build-backend
+FROM node:14-alpine as development
 
 WORKDIR /walmart-backend
 COPY package*.json ./
-RUN npm run build
+RUN npm install
 COPY . .
+RUN npm run build --only=production
 
-COPY --from=build-backend /walmart-backend/dist ./dist
+##COPY --from=development /walmart-backend/dist ./dist
 
 CMD ["node", "dist/main"]

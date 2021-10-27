@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { Select, Store } from '@ngxs/store';
-import { Observable } from 'rxjs';
-import { ProductState, SEARCH_PRODUCTS } from './store/product.store';
+import { Store } from '@ngxs/store';
+import { CREATE_PRODUCTS, SEARCH_PRODUCTS } from './store/product.store';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +8,9 @@ import { ProductState, SEARCH_PRODUCTS } from './store/product.store';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor(private store: Store) {}
+  constructor(private store: Store) {
+    this.store.dispatch(new CREATE_PRODUCTS());
+  }
 
   searchProduct(search: any) {
     if (!isNaN(Number(search.value.trim())) || search.value.trim().length > 2) {

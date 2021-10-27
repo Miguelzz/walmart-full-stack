@@ -17,6 +17,20 @@ export interface Product {
 export class ProductService {
   constructor(private apollo: Apollo) {}
 
+  createProducts() {
+    type Result = {
+      products: Product[];
+    };
+
+    return this.apollo.watchQuery<Result>({
+      query: gql`
+          createProducts {
+            createProducts {}
+          }
+        `,
+    }).valueChanges;
+  }
+
   search(search: string) {
     type Result = {
       products: Product[];
