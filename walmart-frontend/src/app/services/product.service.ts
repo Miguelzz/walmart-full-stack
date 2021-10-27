@@ -18,17 +18,15 @@ export class ProductService {
   constructor(private apollo: Apollo) {}
 
   createProducts() {
-    type Result = {
-      products: Product[];
-    };
-
-    return this.apollo.watchQuery<Result>({
-      query: gql`
+    return this.apollo.mutate({
+      mutation: gql`
+        mutation {
           createProducts {
-            createProducts {}
+            index
           }
-        `,
-    }).valueChanges;
+        }
+      `,
+    });
   }
 
   search(search: string) {

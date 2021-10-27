@@ -14,7 +14,7 @@ import { HomeModule } from './modules/home/home.module';
       installSubscriptionHandlers: true,
       context: (req) => ({ headers: req.headers }),
     }),
-    MongooseModule.forRoot('mongodb://localhost:27017/walmart'),
+    MongooseModule.forRoot('mongodb://mongo:27017/walmart'),
     HomeModule,
   ],
   controllers: [],

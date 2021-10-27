@@ -7,7 +7,10 @@ export const isPalindrome = (value: string) => {
 };
 
 export const discount = (product: Product) => {
-  if (isPalindrome(product.description) || isPalindrome(product.brand))
+  if (
+    (product && isPalindrome(product.description)) ||
+    isPalindrome(product.brand)
+  )
     return {
       ...(product as any)._doc,
       discount: 50,

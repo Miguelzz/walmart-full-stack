@@ -8,4 +8,4 @@ RUN npm run build --only=production
 
 ##COPY --from=development /walmart-backend/dist ./dist
 
-CMD ["node", "dist/main"]
+CMD ["npm", "run", "start:prod"]
